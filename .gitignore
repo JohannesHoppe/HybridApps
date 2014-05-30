@@ -1,0 +1,8 @@
+[Bb]in/
+[Oo]bj/
+packages/
+*.user
+*.suo
+_Resharper*
+Thumbs.db
+.sass-cache
