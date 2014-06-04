@@ -9,6 +9,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "OpenSansItalic";
   src: url("../../lib/font/OpenSans/OpenSans-Italic-webfont.eot");
@@ -16,6 +17,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "OpenSansBold";
   src: url("../../lib/font/OpenSans/OpenSans-Bold-webfont.eot");
@@ -23,6 +25,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 em, em * {
   font-family: 'OpenSansItalic', sans-serif;
 }
@@ -60,7 +63,7 @@ body.x-body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #346369;
+  color: #537078;
   font-family: "OpenSansBold", sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
@@ -76,7 +79,7 @@ body.x-body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #346369;
+  color: #0b72b5;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -86,14 +89,14 @@ body.x-body {
 }
 
 .reveal a:not(.image):hover {
-  color: #122325;
+  color: #053555;
   text-shadow: none;
   border: none;
 }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #1b3336;
+  background: #07456d;
 }
 
 /*********************************************
@@ -113,7 +116,7 @@ body.x-body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #346369;
+  border-color: #0b72b5;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
 
@@ -122,38 +125,38 @@ body.x-body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #346369;
+  border-right-color: #0b72b5;
 }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #346369;
+  border-left-color: #0b72b5;
 }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #346369;
+  border-bottom-color: #0b72b5;
 }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #346369;
+  border-top-color: #0b72b5;
 }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #122325;
+  border-right-color: #053555;
 }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #122325;
+  border-left-color: #053555;
 }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #122325;
+  border-bottom-color: #053555;
 }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #122325;
+  border-top-color: #053555;
 }
 
 /*********************************************
@@ -164,7 +167,7 @@ body.x-body {
 }
 
 .reveal .progress span {
-  background: #346369;
+  background: #0b72b5;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -277,21 +280,6 @@ ul.model span {
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 454px 454px;
-}
-*/
-.pattern .reveal .state-background {
-  background-image: url("../../images/background-pattern.svg");
-  background-repeat: repeat;
-}
-
-/*
-.jasmine .reveal .state-background {
-    background-image: url('../../images/jasmine_logo_bg.png');
-    
-    -webkit-transition: background-image 0.8s linear;
-    -moz-transition: background-image 0.8s linear;
-    -o-transition: background-image 0.8s linear;
-    transition: background-image 0.8s linear;
 }
 */
 code.small {
