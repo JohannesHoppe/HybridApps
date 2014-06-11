@@ -1,6 +1,6 @@
 # Vortrag + Demo Code
 
-![Logo](http://johanneshoppe.github.io/HybridApps/Slides/images/logo.png)
+![Logo](Slides/images/logo.png)
 
 ## Apache Cordova <br>und Frameworks für hybride Apps
 
