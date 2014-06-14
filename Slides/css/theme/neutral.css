@@ -9,7 +9,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "OpenSansItalic";
   src: url("../../lib/font/OpenSans/OpenSans-Italic-webfont.eot");
@@ -17,7 +16,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "OpenSansBold";
   src: url("../../lib/font/OpenSans/OpenSans-Bold-webfont.eot");
@@ -25,7 +23,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 em, em * {
   font-family: 'OpenSansItalic', sans-serif;
 }
@@ -318,7 +315,7 @@ iframe.spec {
   font-weight: normal !important;
   line-height: 1 !important;
   font-style: normal !important;
-  color: #346369;
+  color: #537078;
 }
 
 /* fix font aweseome */
