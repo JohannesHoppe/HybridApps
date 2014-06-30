@@ -73,8 +73,9 @@
     <Content Include="jquery-mobile\styles\images\icons-18-white.png" />
     <Content Include="jquery-mobile\styles\images\icons-36-black.png" />
     <Content Include="jquery-mobile\styles\images\icons-36-white.png" />
-    <Content Include="scripts\location.js" />
-    <Content Include="scripts\login.js" />
+    <Content Include="scripts\details.js" />
+    <Content Include="scripts\index.js" />
+    <Content Include="scripts\moment.min.js" />
     <Content Include="styles\main.css" />
     <Content Include="styles\images\location.png" />
     <Content Include="styles\images\location2x.png" />
@@ -84,6 +85,26 @@
     <Content Include="styles\images\search2x.png" />
     <Content Include="styles\images\search_active.png" />
     <Content Include="styles\images\search_active2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="App_Resources\WP8\" />
+    <Folder Include="App_Resources\WP8\Tiles\" />
+    <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="jquery-mobile\" />
+    <Folder Include="jquery-mobile\js\" />
+    <Folder Include="jquery-mobile\styles\" />
+    <Folder Include="jquery-mobile\styles\images\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="scripts\" />
+    <Folder Include="styles\" />
+    <Folder Include="styles\images\" />
   </ItemGroup>
   <Import Project="$(IceniumTargets)Build.targets" />
   <!--
