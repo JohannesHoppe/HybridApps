@@ -74,8 +74,12 @@
     <Content Include="jquery-mobile\styles\images\icons-36-black.png" />
     <Content Include="jquery-mobile\styles\images\icons-36-white.png" />
     <Content Include="scripts\details.js" />
+    <Content Include="scripts\getData.js" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\moment.min.js" />
+    <Content Include="scripts\talks_fallback.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="styles\main.css" />
     <Content Include="styles\images\location.png" />
     <Content Include="styles\images\location2x.png" />

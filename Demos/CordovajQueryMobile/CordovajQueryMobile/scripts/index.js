@@ -1,12 +1,8 @@
 ﻿(function ($) {
 
     $("#page-home").on('pagebeforeshow', function () {
-        
-        $.ajax({
-            url: 'http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json',
-            dataType: 'jsonp',
-            jsonpCallback: 'callback'
-        }).done(function (result) {
+
+        getData().done(function (result) {
             $('#home-listview')
                 .empty()
                 .append(createListItems(result))
