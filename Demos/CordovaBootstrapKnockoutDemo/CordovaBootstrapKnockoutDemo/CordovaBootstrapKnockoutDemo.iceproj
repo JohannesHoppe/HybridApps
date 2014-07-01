@@ -48,17 +48,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="index.html" />
     <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\getData.js" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\IndexPageViewModel.js" />
     <Content Include="scripts\jquery-2.0.3.js" />
-    <Content Include="scripts\jquery-2.0.3.min.js" />
-    <Content Include="scripts\jquery-2.0.3.min.map" />
     <Content Include="scripts\knockout-2.3.0.debug.js" />
     <Content Include="scripts\knockout-2.3.0.js" />
     <Content Include="scripts\knockout.mapping-latest.debug.js" />
-    <Content Include="scripts\knockout.mapping-latest.js" />
     <Content Include="scripts\moment.min.js" />
     <Content Include="scripts\talks_fallback.json" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />

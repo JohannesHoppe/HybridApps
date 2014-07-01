@@ -10,11 +10,7 @@
         self.loadData = function () {
 
             self.notes.removeAll();
-            $.ajax({
-                url: 'http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json',
-                dataType: 'jsonp',
-                jsonpCallback: 'callback'
-            }).done(function(result) {
+            getData().done(function(result) {
                 self.notes = ko.mapping.fromJS(result, {}, self.notes);
             });
         };
