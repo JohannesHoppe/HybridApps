@@ -65,7 +65,6 @@
     <Resource Include="App_Resources\WP8\SplashScreenImage.jpg" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
-    <Content Include="data\weather.json" />
     <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
@@ -75,24 +74,29 @@
     <Content Include="kendo\styles\images\wp8_icons.png" />
     <Content Include="kendo\styles\images\wp8_inverseicons.png" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\location.js" />
-    <Content Include="scripts\login.js" />
-    <Content Include="scripts\weather.js" />
+    <Content Include="scripts\DetailsPageViewModel.js" />
+    <Content Include="scripts\IndexPageViewModel.js" />
+    <Content Include="scripts\moment.min.js" />
     <Content Include="styles\main.css" />
-    <Content Include="styles\images\appbuilder.png" />
-    <Content Include="styles\images\appbuilder2x.png" />
-    <Content Include="styles\images\location.png" />
-    <Content Include="styles\images\location2x.png" />
-    <Content Include="styles\images\location_active.png" />
-    <Content Include="styles\images\location_active2x.png" />
-    <Content Include="styles\images\logo.png" />
-    <Content Include="styles\images\logo2x.png" />
-    <Content Include="styles\images\search.png" />
-    <Content Include="styles\images\search2x.png" />
-    <Content Include="styles\images\search_active.png" />
-    <Content Include="styles\images\search_active2x.png" />
-    <Content Include="styles\images\sprite-weather.png" />
-    <Content Include="styles\images\sprite-weather2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="App_Resources\WP8\" />
+    <Folder Include="App_Resources\WP8\Tiles\" />
+    <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="kendo\" />
+    <Folder Include="kendo\js\" />
+    <Folder Include="kendo\styles\" />
+    <Folder Include="kendo\styles\images\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="scripts\" />
+    <Folder Include="styles\" />
   </ItemGroup>
   <Import Project="$(IceniumTargets)Build.targets" />
   <!--

@@ -1,29 +1,19 @@
 (function (global) {
     var app = global.app = global.app || {};
 
-    app.makeUrlAbsolute = function (url) {
-            var anchorEl = document.createElement("a");
-            anchorEl.href = url;
-            return anchorEl.href;
-        };
+    document.addEventListener("deviceready", function() {
 
-    document.addEventListener("deviceready", function () {
-        navigator.splashscreen.hide();
+        app.indexPageViewModel = new IndexPageViewModel();
+        app.indexPageViewModel.loadData();
 
-        app.changeSkin = function (e) {
-            var mobileSkin = "";
+        app.detailsPageViewModel = new DetailsPageViewModel();
+        
+        // kendo.mobile.Application internally calls kendo.bind
+        app.application = new kendo.mobile.Application($(document.body), { layout: "tabstrip-layout" });
 
-            if (e.sender.element.text() === "Flat") {
-                e.sender.element.text("Native");
-                mobileSkin = "flat";
-            } else {
-                e.sender.element.text("Flat");
-                mobileSkin = "";
-            }
+        //app.application.skin("flat");
+        app.application.skin("");
 
-            app.application.skin(mobileSkin);
-        };
-
-        app.application = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout" });
     }, false);
+
 })(window);
