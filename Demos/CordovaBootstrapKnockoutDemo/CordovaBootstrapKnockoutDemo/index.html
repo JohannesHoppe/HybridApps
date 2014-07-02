@@ -19,17 +19,17 @@
                 <i class="glyphicon glyphicon-home" data-bind="click: $root.loadData"></i>
                 <h2>DWX 2014</h2>
             
-                <p class="alert alert-info">
-                    The following list was rendered with <b>jQuery</b> &amp; <b>Knockout</b>
-                    and styled via the Slate <b>Bootstrap</b> theme.
-                </p> 
-            
                 <div class="list-group" data-bind="foreach: notes">
                     <a class="list-group-item" data-bind="click: $root.showDetails">
                         <span class="badge" data-bind="text: moment(Added()).format('DD.MM.YYYY')"></span>
                         <!--ko text: Title--><!--/ko-->
                     </a>
-                </div> 
+                </div>   
+
+                <p class="alert alert-info">
+                    This list was rendered with <b>jQuery</b> &amp; <b>Knockout</b>
+                    and styled via the Slate <b>Bootstrap</b> theme.
+                </p> 
             </div>    
                        
             <div data-bind="visible: selectedNote()" style="display:none;">
