@@ -1,0 +1,12 @@
+{
+    "name": "TalkDataCrawler",
+    "version": "0.0.1",
+    "description": "TalkDataCrawler",
+    "main": "crawler.js",
+    "author": {
+    "name": "Johannes Hoppe"
+    },
+    "dependencies": {
+        "crawler": "0.2.5"
+    }
+}
