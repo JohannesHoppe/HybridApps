@@ -4,8 +4,6 @@
  * Note: npm ncrawler will require you to install Python first (python-2.7.8 works fine)
  */
 
-debugger;
-
 var fs = require('fs'),
     Crawler = require("crawler").Crawler,
     config = {
@@ -19,11 +17,18 @@ var fs = require('fs'),
 
 var crawlerCallback = function(error, result, $) {
 
-debugger;
+    if (error) {
+        console.log(error, result, $);
+        return;
+    }
 
     var title = $(".container h2:first").text();
     var description = $(".container p").text();
     var date = $(".container .ezagenda_date").text();
+
+    if (!title) {
+        return;
+    }
 
     talks.push({
         title: title,
@@ -49,6 +54,8 @@ var crawlerStart = function() {
     while (i <= config.endNumber) {
         urls.push(config.url + ++i);
     }
+
+    console.log(urls);
 
     crawler = new Crawler({
         "maxConnections": 10,
