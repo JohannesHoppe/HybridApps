@@ -1,8 +1,10 @@
 /**
  * A qick & dirty crawler to get the events from DWX 2014
  *
- * Note: npm ncrawler will require you to install Python first
+ * Note: npm ncrawler will require you to install Python first (python-2.7.8 works fine)
  */
+
+debugger;
 
 var fs = require('fs'),
     Crawler = require("crawler").Crawler,
@@ -16,6 +18,8 @@ var fs = require('fs'),
     talks = [];
 
 var crawlerCallback = function(error, result, $) {
+
+debugger;
 
     var title = $(".container h2:first").text();
     var description = $(".container p").text();
@@ -42,8 +46,8 @@ var crawlerStart = function() {
     var crawler, urls = [],
         i = config.startNumber;
 
-    while (i <= endNumber) {
-        urls.push(url + ++i);
+    while (i <= config.endNumber) {
+        urls.push(config.url + ++i);
     }
 
     crawler = new Crawler({
@@ -58,3 +62,7 @@ var crawlerStart = function() {
 crawlerStart();
 
 
+setTimeout(function() {
+        console.log("Test");
+    },
+    100000);
