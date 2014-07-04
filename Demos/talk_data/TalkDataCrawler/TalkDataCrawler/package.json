@@ -6,9 +6,13 @@
     "author": {
     "name": "Johannes Hoppe"
     },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/JohannesHoppe/HybridApps.git"
+    },
     "dependencies": {
         "simplecrawler": "0.3.8",
-        "jsdom": null,
-        "jquery": null
+        "jsdom": "0.11.1",
+        "jquery": "2.1.1"
     }
 }
