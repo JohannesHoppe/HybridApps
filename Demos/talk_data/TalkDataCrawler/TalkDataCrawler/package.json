@@ -7,6 +7,8 @@
     "name": "Johannes Hoppe"
     },
     "dependencies": {
-        "crawler": "0.2.5"
+        "simplecrawler": "0.3.8",
+        "jsdom": null,
+        "jquery": null
     }
 }
