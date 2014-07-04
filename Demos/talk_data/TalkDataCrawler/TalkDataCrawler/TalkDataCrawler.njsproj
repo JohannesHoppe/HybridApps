@@ -12,7 +12,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>d37e3ca4-9cbb-410a-a728-f528897bfead</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>crawler.js</StartupFile>
+    <StartupFile>start.js</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -29,7 +29,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="crawler.js" />
+    <Compile Include="start.js" />
+    <Compile Include="dwxCrawler.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

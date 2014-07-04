@@ -3,7 +3,7 @@
  */
 
 var fs = require('fs'),
-    DwxCrawler = require('dwxCrawler'), dwxCrawler,
+    DwxCrawler = require('./dwxCrawler'), dwxCrawler,
     saveTalksToDisk,
 
     config = {
