@@ -1,7 +1,7 @@
 ﻿var util = require('util'),
     extend = require('extend'),
     events = require('events'),
-    sdom = require('jsdom'),
+    jsdom = require('jsdom'),
     jquery = require('jquery'),
     SimpleCrawler = require("simplecrawler");
 
@@ -30,8 +30,8 @@ Crawler.prototype._jQuerifyHtml = function(html) {
         MutationEvents: false,
         QuerySelector: false
     }).createWindow();
- 
-    return jquery.create(window);
+
+    return jquery(window);
 }
 
 Crawler.prototype._isHtml = function(queueItem) {
@@ -49,8 +49,7 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     if (!this._isHtml(queueItem) || !this._isEventPage(queueItem)) {
         return;
     }
-    
-    /*
+
     var html = responseBuffer.toString();
     var $ = this._jQuerifyHtml(html);
 
@@ -66,7 +65,7 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
         title: title,
         description: description,
         date: date
-    });*/
+    });
 };
 
 Crawler.prototype._fetcherror = function(queueItem, response) {
