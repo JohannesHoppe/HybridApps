@@ -3,11 +3,15 @@
  */
 
 var fs = require('fs'),
-    DwxCrawler = require('./dwxCrawler'), dwxCrawler,
+    DwxCrawler = require('./dwxCrawler'),
+    dwxCrawler,
 
     crawlerConfig = {
         host: 'www.developer-week.de',
-        initialPath: '/Programm'
+        initialPath: '/Programm',
+        discoverRegex: [
+            /(\shref\s?=\s?)['"](\/Programm\/Veranstaltung\/\(event\)\/[^"']+)/ig
+        ]
     },
     fileNameJson = 'talks_fallback.json',
     fileNameJsonP = 'talks_callback.json';

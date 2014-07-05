@@ -34,15 +34,23 @@ Crawler.prototype._jQuerifyHtml = function(html) {
     return jquery.create(window);
 }
 
+Crawler.prototype._isHtml = function(queueItem) {
+    return queueItem.stateData.contentType.indexOf("text/html") !== -1;
+}
+
+Crawler.prototype._isEventPage = function (queueItem) {
+    return queueItem.url.indexOf("event") !== -1;
+}
+
 Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , response) {
 
     console.log("Completed fetching resource:", queueItem.url);
 
-    if (queueItem.stateData.contentType != "text/html" ||
-        queueItem.url.indexOf("(event)") == -1) {
+    if (!this._isHtml(queueItem) || !this._isEventPage(queueItem)) {
         return;
     }
-
+    
+    /*
     var html = responseBuffer.toString();
     var $ = this._jQuerifyHtml(html);
 
@@ -58,7 +66,7 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
         title: title,
         description: description,
         date: date
-    });
+    });*/
 };
 
 Crawler.prototype._fetcherror = function(queueItem, response) {
