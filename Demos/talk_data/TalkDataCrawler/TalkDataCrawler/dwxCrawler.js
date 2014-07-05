@@ -1,13 +1,26 @@
-﻿var jsdom = require('jsdom'),
+﻿var util = require('util'),
+    extend = require('extend'),
+    events = require('events'),
+    sdom = require('jsdom'),
     jquery = require('jquery'),
-    crawler = require("simplecrawler"),
-    Crawler;
+    SimpleCrawler = require("simplecrawler");
 
-Crawler = function(completeCallback) {
+function Crawler(config) {
 
+    this.config = config;
     this.talks = [];
-    this.completeCallback = completeCallback;
+
+    this._crawler = new SimpleCrawler(this.config.host);
+    extend(this._crawler, config);
+    
+    this._crawler.on("fetchcomplete", this._fetchcomplete.bind(this));
+    this._crawler.on("complete", function () {
+        this.emit('complete', this.talks);
+    }.bind(this));
+
 }
+
+util.inherits(Crawler, events.EventEmitter);
 
 Crawler.prototype._jQuerifyHtml = function(html) {
     
@@ -25,11 +38,13 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
 
     console.log("Completed fetching resource:", queueItem.url);
 
-    if (queueItem.url.indexOf("(event)") == -1) {
+    if (queueItem.stateData.contentType != "text/html" ||
+        queueItem.url.indexOf("(event)") == -1) {
         return;
     }
 
-    var $ = this._jQuerifyHtml(response);
+    var html = responseBuffer.toString();
+    var $ = this._jQuerifyHtml(html);
 
     var title = $(".container h2:first").text();
     var description = $(".container p").text();
@@ -46,14 +61,12 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     });
 };
 
-Crawler.prototype.crawlerStart = function() {
+Crawler.prototype._fetcherror = function(queueItem, response) {
+    console.log("Error fetching resource:", queueItem.url);
+};
 
-    crawler.crawl(config.url)
-        .on("fetchcomplete", this._fetchcomplete.bind(this))
-        .on("complete", function() {
-            this.completeCallback(this.talks);
-        }.bind(this));
-
+Crawler.prototype.start = function() {
+    this._crawler.start();
 };
 
 module.exports = Crawler;
