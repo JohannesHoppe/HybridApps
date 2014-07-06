@@ -1,8 +1,7 @@
 ﻿var util = require('util'),
     extend = require('extend'),
     events = require('events'),
-    jsdom = require('jsdom'),
-    jquery = require('jquery'),
+    cheerio = require('cheerio'),
     SimpleCrawler = require("simplecrawler"),
     dateformat = require("dateformat");
 
@@ -24,7 +23,20 @@ function Crawler(config) {
 util.inherits(Crawler, events.EventEmitter);
 
 Crawler.prototype._jQuerifyHtml = function(html) {
-    
+
+    $ = cheerio.load(html);
+    return $;
+
+    /*
+    var result = jsdom.env(html, null, function(nothing, document) {
+        debugger;
+        console.log("adsads");
+    });
+    */
+
+    debugger;
+
+    /*
     var window = jsdom.jsdom(html, null, {
         FetchExternalResources: false,
         ProcessExternalResources: false,
@@ -32,7 +44,7 @@ Crawler.prototype._jQuerifyHtml = function(html) {
         QuerySelector: false
     }).createWindow();
 
-    return jquery(window);
+    return jquery(window);*/
 }
 
 Crawler.prototype._isHtml = function(queueItem) {
@@ -84,7 +96,7 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     var html = responseBuffer.toString();
     var $ = this._jQuerifyHtml(html);
 
-    var title = $(".container h2:first").text().trim();
+    var title = $(".container h2").text().trim();
     var description = $(".container p").text().trim();
     var time_and_track = $(".container .ezagenda_date").text().split("Track:");
     var germanDate = time_and_track[0].trim();     
