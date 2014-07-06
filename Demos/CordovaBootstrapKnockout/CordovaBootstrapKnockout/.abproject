@@ -3,7 +3,7 @@
   "ProjectGuid": "3607db4c-3e4a-4f76-92ce-1e9923942597",
   "IsRunnable": "true",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "AppIdentifier": "com.telerik.CordovaBootstrapKnockoutDemo",
+  "AppIdentifier": "com.telerik.CordovaBootstrapKnockout",
   "BundleVersion": "1.0",
   "FrameworkVersion": "3.2.0",
   "CorePlugins": [
@@ -58,5 +58,8 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "Framework": "Cordova"
+  "Framework": "Cordova",
+  "DisplayName": "Demo: Cordova - Bootstrap - Knockout",
+  "Author": "Johannes Hoppe",
+  "Description": "Diese hybride App verwendet Knockout.js."
 }

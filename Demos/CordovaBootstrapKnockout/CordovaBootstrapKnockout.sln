@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "CordovaBootstrapKnockoutDemo", "CordovaBootstrapKnockoutDemo\CordovaBootstrapKnockoutDemo.iceproj", "{3607DB4C-3E4A-4F76-92CE-1E9923942597}"
+Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "CordovaBootstrapKnockout", "CordovaBootstrapKnockout\CordovaBootstrapKnockout.iceproj", "{3607DB4C-3E4A-4F76-92CE-1E9923942597}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
