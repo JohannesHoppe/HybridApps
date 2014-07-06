@@ -1,15 +1,13 @@
 ﻿var IndexPageViewModel = function () {
 
     var viewModel = kendo.observable({
-        notes: [],
+        talks: [],
 
         loadData: function() {
 
             getData().done(function (result) {
-                viewModel.set("notes", result);
-
-                var lastNote = viewModel.notes[viewModel.notes.length - 1];
-                app.detailsPageViewModel.setData(lastNote);
+                viewModel.set("talks", result);
+                app.detailsPageViewModel.setData(result[0]);
             });
         },
 

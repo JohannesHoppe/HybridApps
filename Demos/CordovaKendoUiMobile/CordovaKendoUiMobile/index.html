@@ -27,9 +27,9 @@
                 <h1>DWX 2014</h1>
                             
                 <ul data-role="listview"
-                    data-template="notesTemplate"
+                    data-template="talksTemplate"
                     data-style="inset"
-                    data-bind="source: notes, events: { click: showDetails }">
+                    data-bind="source: talks, events: { click: showDetails }">
                 </ul>   
 
                 <p>
@@ -38,7 +38,7 @@
             </div>
         </div>   
         
-        <script id="notesTemplate" type="text/x-kendo-template">
+        <script id="talksTemplate" type="text/x-kendo-template">
             <a>#=title#</a>
         </script>
                   
