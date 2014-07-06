@@ -9,6 +9,16 @@
         <link href="css/bootswatch.slate.min.css" rel="stylesheet" media="screen">
         <link href="css/page.css" rel="stylesheet" media="screen">
         
+        <script src="cordova.js"></script> 
+        <script src="scripts/jquery-2.0.3.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/knockout-2.3.0.js"></script>
+        <script src="scripts/knockout.mapping-latest.debug.js"></script>
+        <script src="scripts/moment.min.js"></script>   
+        <script src="scripts/getData.js" ></script>
+        <script src="scripts/IndexPageViewModel.js"></script>
+        <script src="scripts/index.js"></script>
+        
         <title>Demo: Cordova - Bootstrap - Knockout</title>
     </head>
     <body>
@@ -41,7 +51,7 @@
                         <!--ko text: title--><!--/ko-->
                     </h2>                  
                     
-                    <b>Speaker:</b> <span id="detail_speaker" data-bind="text: speaker"></span><br/>   
+                    <b>Sprecher:</b> <span id="detail_speaker" data-bind="text: speaker"></span><br/>   
                     <b>Track:</b> <span id="detail_track" data-bind="text: track"></span><br/>    
                     
                     <br/>
@@ -50,15 +60,6 @@
             </div>
         </div>
         
-        <script type="text/javascript" src="cordova.js"></script> 
-        <script type="text/javascript" src="scripts/jquery-2.0.3.js"></script>
-        <script type="text/javascript" src="scripts/bootstrap.js"></script>
-        <script type="text/javascript" src="scripts/knockout-2.3.0.js"></script>
-        <script type="text/javascript" src="scripts/knockout.mapping-latest.debug.js"></script>
-        <script type="text/javascript" src="scripts/moment.min.js"></script>   
-        <script src="scripts/getData.js" type="text/javascript"></script>
-        <script type="text/javascript" src="scripts/IndexPageViewModel.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
         <script type="text/javascript">
             app.init();
         </script>

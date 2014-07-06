@@ -65,8 +65,12 @@
     <Content Include="kendo\styles\images\wp8_inverseicons.png" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\DetailsPageViewModel.js" />
+    <Content Include="scripts\getData.js" />
     <Content Include="scripts\IndexPageViewModel.js" />
     <Content Include="scripts\moment.min.js" />
+    <Content Include="scripts\talks_fallback.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="styles\main.css" />
   </ItemGroup>
   <ItemGroup>

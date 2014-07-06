@@ -5,11 +5,7 @@
 
         loadData: function() {
 
-            $.ajax({
-                url: 'http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json',
-                dataType: 'jsonp',
-                jsonpCallback: 'callback'
-            }).done(function(result) {
+            getData().done(function (result) {
                 viewModel.set("notes", result);
 
                 var lastNote = viewModel.notes[viewModel.notes.length - 1];

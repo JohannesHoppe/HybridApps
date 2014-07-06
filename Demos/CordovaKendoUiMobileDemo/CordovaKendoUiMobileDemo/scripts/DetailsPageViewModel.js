@@ -2,15 +2,19 @@
 
     var viewModel = kendo.observable({
         
-        Title: '',
-        Added: '',
-        Message: '',
+        title: '',
+        start: '',
+        description: '',
+        speaker: '',
+        track: '',
 
         setData: function(data) {
 
-            viewModel.set('Title', data.Title);
-            viewModel.set('Added', moment(data.Added).format('DD.MM.YYYY'));
-            viewModel.set('Message', data.Message);
+            viewModel.set('title', data.title);
+            viewModel.set('start', moment(data.start).format('DD.MM.YYYY - hh:mm [Uhr]'));
+            viewModel.set('description', data.description);
+            viewModel.set('speaker', data.speaker);
+            viewModel.set('track', data.track);
 
         }
     });

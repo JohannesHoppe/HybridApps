@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
-                                          
-        
+
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="scripts/DetailsPageViewModel.js"></script>
     <script src="scripts/moment.min.js"></script>
+    <script src="scripts/getData.js" type="text/javascript"></script>
     <script src="scripts/IndexPageViewModel.js"></script>
     <script src="scripts/app.js"></script>      
 
@@ -24,11 +24,7 @@
             <div data-role="content" class="view-content">
                 
                 <i class="km-icon km-home"></i>
-                <h1>Kendo UI Mobile</h1>
-                <p>
-                    The following list was rendered with <b>Kendo UI Mobile</b>,
-                    a MVVM framework on top of <b>jQuery</b>.
-                </p>         
+                <h1>DWX 2014</h1>
                             
                 <ul data-role="listview"
                     data-template="notesTemplate"
@@ -36,38 +32,30 @@
                     data-bind="source: notes, events: { click: showDetails }">
                 </ul>   
 
+                <p>
+                    Diese App verwendet <b>Kendo UI Mobile</b> und ist ein Beispiel f&uuml;r die Entwicklung von hybriden Anwendungen mit Apache Cordova.
+                </p>
             </div>
         </div>   
         
         <script id="notesTemplate" type="text/x-kendo-template">
-            <a>#=Title#</a>
+            <a>#=title#</a>
         </script>
                   
         <div id="detailsPage" data-role="view" data-title="Details" data-model="app.detailsPageViewModel">
 
             <div data-role="content" class="view-content" data-style="inset" >
                 
-                <span data-bind="text: Added" class="label"></span>
+                <span data-bind="text: start" class="label"></span>
                 <i class="km-icon km-bookmarks"></i>
-                <h1>Webinar</h1>
-                
-                <ul data-role="listview" data-style="inset" data-type="group">
-                    <li>
-                        <ul>
-                            <li><b data-bind="text: Title"></b></li>
-                            <li>Johannes Hoppe</li>
-                        </ul>
-                    </li>
-                    <li>Message
-                        <ul>
-                            <li data-bind="text: Message"></li>
-                        </ul>
-                    </li>                    
-                </ul>
+                <h1 data-bind="text: title"></h1>
+                  
+                <p>
+                    <b>Sprecher:</b> <span data-bind="text: speaker"></span><br/>   
+                    <b>Track:</b> <span data-bind="text: track"></span><br/>
+                </p>        
 
-                <!--
-                    <a href="#indexPage" data-role="button" data-transition="slide:left reverse">Back to Home</a>
-                    -->
+                <p data-bind="text: description"></p>
             </div>
         </div>           
         
@@ -85,7 +73,7 @@
             <div data-role="footer">
                 <div data-role="tabstrip">
                     <a href="#indexPage" data-icon="home">Home</a>
-                    <a href="#detailsPage" data-icon="contacts">Details</a>
+                    <a href="#detailsPage" data-icon="bookmarks">Details</a>
                 </div>
             </div>
         </div>
