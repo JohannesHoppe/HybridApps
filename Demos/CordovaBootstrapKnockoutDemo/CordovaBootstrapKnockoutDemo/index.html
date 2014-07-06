@@ -27,8 +27,7 @@
                 </div>   
 
                 <p class="alert alert-info">
-                    This list was rendered with <b>jQuery</b> &amp; <b>Knockout</b>
-                    and styled via the Slate <b>Bootstrap</b> theme.
+                    Diese App verwendet <b>Knockout.js</b> und ist ein Beispiel für die Entwicklung von hybriden Anwendungen mit Apache Cordova.
                 </p> 
             </div>    
                        
@@ -38,7 +37,7 @@
                     
                     <i class="glyphicon glyphicon-circle-arrow-left" data-bind="click: $root.showHome"></i>
                     <h2>
-                        <span class="label label-info pull-right small" data-bind="text: moment(start()).format('DD.MM.YYYY hh:mm')"></span>
+                        <span class="label label-info pull-right small" data-bind="text: moment(start()).format('DD.MM.YYYY - hh:mm [Uhr]')"></span>
                         <!--ko text: title--><!--/ko-->
                     </h2>                  
                     
@@ -48,7 +47,7 @@
                     <br/>
                     <p data-bind="text: description"></p>
                 </form>
-            </div>           
+            </div>
         </div>
         
         <script type="text/javascript" src="cordova.js"></script> 
