@@ -18,7 +18,8 @@ var fs = require('fs'),
     fileNameJsonP = '../talks_callback.json';
 
 var writeFile = function(fileName, content) {
-    var utf8Bom = '\ufeff';
+    //var utf8Bom = '\ufeff';
+    var utf8Bom = '';
     fs.writeFile(fileName, utf8Bom + content, 'utf8', console.log);
 };
 
