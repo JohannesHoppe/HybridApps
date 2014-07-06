@@ -4,14 +4,14 @@
 
         var self = this;
 
-        self.notes = ko.observableArray();
+        self.talks = ko.observableArray();
         self.selectedNote = ko.observable(false);
 
         self.loadData = function () {
 
-            self.notes.removeAll();
+            self.talks.removeAll();
             getData().done(function(result) {
-                self.notes = ko.mapping.fromJS(result, {}, self.notes);
+                self.talks = ko.mapping.fromJS(result, {}, self.talks);
             });
         };
 

@@ -19,10 +19,10 @@
                 <i class="glyphicon glyphicon-home" data-bind="click: $root.loadData"></i>
                 <h2>DWX 2014</h2>
             
-                <div class="list-group" data-bind="foreach: notes">
+                <div class="list-group" data-bind="foreach: talks">
                     <a class="list-group-item" data-bind="click: $root.showDetails">
-                        <span class="badge" data-bind="text: moment(Added()).format('DD.MM.YYYY')"></span>
-                        <!--ko text: Title--><!--/ko-->
+                        <span class="badge" data-bind="text: moment(start()).format('hh:mm')"></span>
+                        <!--ko text: title--><!--/ko-->
                     </a>
                 </div>   
 
@@ -37,23 +37,16 @@
                 <form class="form-horizontal" role="form" data-bind="with: selectedNote">
                     
                     <i class="glyphicon glyphicon-circle-arrow-left" data-bind="click: $root.showHome"></i>
-                    <h2>Details
-                        <span class="label label-info pull-right small" data-bind="text: moment(Added()).format('DD.MM.YYYY')"></span>
-                    </h2> 
-
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">Title</label>
-                        <div class="col-lg-10">
-                            <p class="form-control-static" data-bind="text: Title"></p>
-                        </div> 
-                    </div>  
-                
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">Message</label>
-                        <div class="col-lg-10">
-                            <p class="form-control-static" data-bind="text: Message"></p>
-                        </div> 
-                    </div>
+                    <h2>
+                        <span class="label label-info pull-right small" data-bind="text: moment(start()).format('DD.MM.YYYY hh:mm')"></span>
+                        <!--ko text: title--><!--/ko-->
+                    </h2>                  
+                    
+                    <b>Speaker:</b> <span id="detail_speaker" data-bind="text: speaker"></span><br/>   
+                    <b>Track:</b> <span id="detail_track" data-bind="text: track"></span><br/>    
+                    
+                    <br/>
+                    <p data-bind="text: description"></p>
                 </form>
             </div>           
         </div>
