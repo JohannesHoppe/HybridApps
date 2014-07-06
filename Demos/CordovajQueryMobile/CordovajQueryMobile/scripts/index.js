@@ -19,7 +19,7 @@
                 $('<a />')
                     .attr('href', '#page-details')
                     .data('transition', 'slide')
-                    .text(item.Title)
+                    .text(item.title)
                     .click(function() {
                         window.sessionStorage.setItem('currentItem', JSON.stringify(item));
                     })
