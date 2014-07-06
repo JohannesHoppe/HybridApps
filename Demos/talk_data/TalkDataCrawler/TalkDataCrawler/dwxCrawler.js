@@ -3,7 +3,8 @@
     events = require('events'),
     jsdom = require('jsdom'),
     jquery = require('jquery'),
-    SimpleCrawler = require("simplecrawler");
+    SimpleCrawler = require("simplecrawler"),
+    dateformat = require("dateformat");
 
 function Crawler(config) {
 
@@ -42,7 +43,6 @@ Crawler.prototype._isEventPage = function (queueItem) {
     return queueItem.url.indexOf("event") !== -1;
 }
 
-// eg. "14.07.2014 11:45 - 12:45 Uhr"  
 Crawler.prototype._reformatGermanDate = function (germanDate) {
 
     // example
@@ -60,14 +60,15 @@ Crawler.prototype._reformatGermanDate = function (germanDate) {
     // ["11", "45"]
     var time_parts = date_and_time[1].split(":");
 
-    var year = date_parts[2];
-    var month = date_parts[1] - 1;
-    var day = date_parts[0];
-    var hour = time_parts[0];
-    var minute = time_parts[1];
+    var year = parseFloat(date_parts[2]);
+    var month = parseFloat(date_parts[1]);
+    var day = parseFloat(date_parts[0]);
+    var hour = parseFloat(time_parts[0]);
+    var minute = parseFloat(time_parts[1]);
     var second = 0;
 
-    var isoDate = new Date(year, month, day, hour, minute, second).toISOString();
+    var localDate = new Date(year, month, day, hour, minute, second);
+    var isoDate = dateformat(localDate, "isoUtcDateTime");
     return isoDate;
 }
 
@@ -87,11 +88,11 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     var description = $(".container p").text().trim();
     var time_and_track = $(".container .ezagenda_date").text().split("Track:");
     var germanDate = time_and_track[0].trim();     
-    var track = time_and_track[1].trim();
+    var track = (time_and_track[1]) ? time_and_track[1].trim() : "";
     var isoDate = this._reformatGermanDate(germanDate);
     var speaker = $("h4").next().find("a").text().trim();
 
-    if (!title || !date || date.indexOf("2014") == -1) {
+    if (!title) {
         return;
     }
 

@@ -18,6 +18,8 @@ var fs = require('fs'),
 
 dwxCrawler = new DwxCrawler(crawlerConfig);
 dwxCrawler.on('complete', function (talks) {
+    
+    console.log("Writing talks to disk!");
 
     var talksJson = JSON.stringify(talks);
     var talksJsonP = 'callback(' + talksJson + ');';
