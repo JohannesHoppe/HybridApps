@@ -23,28 +23,8 @@ function Crawler(config) {
 util.inherits(Crawler, events.EventEmitter);
 
 Crawler.prototype._jQuerifyHtml = function(html) {
-
-    $ = cheerio.load(html);
+    var $ = cheerio.load(html);
     return $;
-
-    /*
-    var result = jsdom.env(html, null, function(nothing, document) {
-        debugger;
-        console.log("adsads");
-    });
-    */
-
-    debugger;
-
-    /*
-    var window = jsdom.jsdom(html, null, {
-        FetchExternalResources: false,
-        ProcessExternalResources: false,
-        MutationEvents: false,
-        QuerySelector: false
-    }).createWindow();
-
-    return jquery(window);*/
 }
 
 Crawler.prototype._isHtml = function(queueItem) {
