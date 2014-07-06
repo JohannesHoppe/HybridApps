@@ -83,13 +83,13 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     var html = responseBuffer.toString();
     var $ = this._jQuerifyHtml(html);
 
-    var title = $(".container h2").text().trim();
-    var description = $(".container p").text().trim();
-    var time_and_track = $(".container .ezagenda_date").text().split("Track:");
+    var title = $(".container h2").first().text().trim();
+    var description = $(".container p").first().text().trim();
+    var time_and_track = $(".container .ezagenda_date").first().text().split("Track:");
     var germanDate = time_and_track[0].trim();     
     var track = (time_and_track[1]) ? time_and_track[1].trim() : "";
     var isoDate = this._reformatGermanDate(germanDate);
-    var speaker = $("h4").next().find("a").text().trim();
+    var speaker = $("h4").next().find("a").first().text().trim();
 
     if (!title) {
         return;
