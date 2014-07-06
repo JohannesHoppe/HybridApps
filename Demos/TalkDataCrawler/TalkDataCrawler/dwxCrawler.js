@@ -82,7 +82,7 @@ Crawler.prototype._reformatGermanDate = function (germanDate) {
     var time_parts = date_and_time[1].split(":");
 
     var year = parseFloat(date_parts[2]);
-    var month = parseFloat(date_parts[1]);
+    var month = parseFloat(date_parts[1]) - 1;
     var day = parseFloat(date_parts[0]);
     var hour = parseFloat(time_parts[0]);
     var minute = parseFloat(time_parts[1]);
