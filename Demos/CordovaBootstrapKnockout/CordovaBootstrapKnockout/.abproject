@@ -59,7 +59,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "Framework": "Cordova",
-  "DisplayName": "Demo: Cordova - Bootstrap - Knockout",
+  "DisplayName": "DWX Demo: Knockout mit Cordova",
   "Author": "Johannes Hoppe",
   "Description": "Diese hybride App verwendet Knockout.js."
 }

@@ -58,5 +58,8 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "Framework": "Cordova"
+  "Framework": "Cordova",
+  "DisplayName": "DWX Demo: jQuery Mobile mit Cordova",
+  "Author": "Johannes Hoppe",
+  "Description": "Diese hybride App verwendet  jQuery Mobile."
 }
