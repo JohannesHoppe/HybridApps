@@ -11,20 +11,24 @@ var fs = require('fs'),
         initialPath: '/Programm',
         discoverRegex: [
             /(\shref\s?=\s?)['"](\/Programm\/Veranstaltung\/\(event\)\/[^"']+)/ig
-        ]
+        ],
+        userAgent: 'DWX 2014 TalkDataCrawler (by Johannes Hoppe)'
     },
     fileNameJson = '../talks_fallback.json',
     fileNameJsonP = '../talks_callback.json';
 
+var writeFile = function(fileName, content) {
+    var utf8Bom = '\ufeff';
+    fs.writeFile(fileName, utf8Bom + content, 'utf8', console.log);
+};
+
 dwxCrawler = new DwxCrawler(crawlerConfig);
 dwxCrawler.on('complete', function (talks, offlineElement) {
-    
+
     console.log("Writing talks to disk!");
 
-    fs.writeFile(fileNameJson, JSON.stringify(talks), 'utf8', console.log);
-    
-    var talksJsonP = 'callback(' + JSON.stringify([offlineElement].concat(talks)) + ');';
-    fs.writeFile(fileNameJsonP, talksJsonP, 'utf8', console.log);
+    writeFile(fileNameJson, JSON.stringify(talks));
+    writeFile(fileNameJsonP, 'callback(' + JSON.stringify([offlineElement].concat(talks)) + ');');
 });
 
 dwxCrawler.start();

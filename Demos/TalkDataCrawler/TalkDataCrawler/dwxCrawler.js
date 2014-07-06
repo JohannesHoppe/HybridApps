@@ -22,6 +22,8 @@ function Crawler(config) {
     
     this._crawler.on("fetchcomplete", this._fetchcomplete.bind(this));
     this._crawler.on("complete", function () {
+
+        this._sortTalks();
         this.emit('complete', this.talks, this.offlineElement);
     }.bind(this));
 
@@ -29,7 +31,27 @@ function Crawler(config) {
 
 util.inherits(Crawler, events.EventEmitter);
 
-Crawler.prototype._jQuerifyHtml = function(html) {
+// sorts by start time and on same time by title
+Crawler.prototype._sortTalks = function() {
+    
+    this.talks.sort(function (a, b) {
+
+        if (a.start < b.start) {
+            return -1;
+        }
+
+        if (a.start > b.start) {
+            return 1;
+        }
+        
+        var textA = a.title.toUpperCase();
+        var textB = b.title.toUpperCase();
+
+        return textA.localeCompare(textB);
+    });
+}
+
+Crawler.prototype._jQuerifyHtml = function (html) {
     var $ = cheerio.load(html);
     return $;
 }
@@ -88,7 +110,7 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     var time_and_track = $(".container .ezagenda_date").first().text().split("Track:");
     var germanDate = time_and_track[0].trim();     
     var track = (time_and_track[1]) ? time_and_track[1].trim() : "";
-    var isoDate = this._reformatGermanDate(germanDate);
+    var start = this._reformatGermanDate(germanDate);
     var speaker = $("h4").next().find("a").first().text().trim();
 
     if (!title) {
@@ -98,7 +120,7 @@ Crawler.prototype._fetchcomplete = function(queueItem , responseBuffer , respons
     this.talks.push({
         title: title,
         description: description,
-        start: isoDate,
+        start: start,
         track: track,
         speaker: speaker
     });
