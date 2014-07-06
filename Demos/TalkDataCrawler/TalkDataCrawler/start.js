@@ -13,18 +13,17 @@ var fs = require('fs'),
             /(\shref\s?=\s?)['"](\/Programm\/Veranstaltung\/\(event\)\/[^"']+)/ig
         ]
     },
-    fileNameJson = 'talks_fallback.json',
-    fileNameJsonP = 'talks_callback.json';
+    fileNameJson = '../talks_fallback.json',
+    fileNameJsonP = '../talks_callback.json';
 
 dwxCrawler = new DwxCrawler(crawlerConfig);
-dwxCrawler.on('complete', function (talks) {
+dwxCrawler.on('complete', function (talks, offlineElement) {
     
     console.log("Writing talks to disk!");
 
-    var talksJson = JSON.stringify(talks);
-    var talksJsonP = 'callback(' + talksJson + ');';
-
-    fs.writeFile(fileNameJson, talksJson, 'utf8', console.log);
+    fs.writeFile(fileNameJson, JSON.stringify(talks), 'utf8', console.log);
+    
+    var talksJsonP = 'callback(' + JSON.stringify([offlineElement].concat(talks)) + ');';
     fs.writeFile(fileNameJsonP, talksJsonP, 'utf8', console.log);
 });
 

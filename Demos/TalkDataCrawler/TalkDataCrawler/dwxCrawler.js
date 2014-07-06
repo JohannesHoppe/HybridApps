@@ -9,13 +9,20 @@ function Crawler(config) {
 
     this.config = config;
     this.talks = [];
+    this.offlineElement = {
+        title: "OFFLINE",
+        description: "There was a connection problem. All shown talks are retrieved from an offline archive.",
+        start: dateformat(new Date(), "isoUtcDateTime"),
+        track: "",
+        speaker: ""
+    };
 
     this._crawler = new SimpleCrawler(this.config.host);
     extend(this._crawler, config);
     
     this._crawler.on("fetchcomplete", this._fetchcomplete.bind(this));
     this._crawler.on("complete", function () {
-        this.emit('complete', this.talks);
+        this.emit('complete', this.talks, this.offlineElement);
     }.bind(this));
 
 }
