@@ -11,24 +11,7 @@
     "org.apache.cordova.splashscreen"
   ],
   "AndroidPermissions": [
-    "android.permission.CAMERA",
-    "android.permission.VIBRATE",
-    "android.permission.ACCESS_COARSE_LOCATION",
-    "android.permission.ACCESS_FINE_LOCATION",
-    "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS",
-    "android.permission.READ_PHONE_STATE",
-    "android.permission.INTERNET",
-    "android.permission.RECEIVE_SMS",
-    "android.permission.RECORD_AUDIO",
-    "android.permission.MODIFY_AUDIO_SETTINGS",
-    "android.permission.READ_CONTACTS",
-    "android.permission.WRITE_CONTACTS",
-    "android.permission.WRITE_EXTERNAL_STORAGE",
-    "android.permission.ACCESS_NETWORK_STATE",
-    "android.permission.ACCOUNT_MANAGER",
-    "android.permission.GET_ACCOUNTS",
-    "android.permission.MANAGE_ACCOUNTS",
-    "android.permission.BROADCAST_STICKY"
+    "android.permission.INTERNET"
   ],
   "DeviceOrientations": [
     "Portrait",
@@ -42,7 +25,21 @@
     "ID_RESOLUTION_HD720P"
   ],
   "Framework": "Cordova",
-  "DisplayName": "DWX Demo: Kendo UI Mobile mit Cordova",
+  "DisplayName": "DWX Demo App",
   "Author": "Johannes Hoppe",
-  "Description": "Diese hybride App verwendet Kendo UI Mobile."
+  "Description": "Inoffizielle Demo-App zur DWX 2014.",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "WP8TileTitle": "DWX Demo App",
+  "WP8ProductID": "{93cd8ddb-cfd8-4854-9d3c-638c27a66b92}",
+  "WP8PublisherID": "{6a9d7515-a5f0-42ac-933b-f45f46ce8bca}",
+  "WP8Publisher": "Johannes Hoppe",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING"
+  ],
+  "WP8Requirements": [],
+  "AndroidVersionCode": "1"
 }
