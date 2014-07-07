@@ -10,10 +10,10 @@ var getData = function () {
     var filterData = function (data) {
 
         var i = data.length,
-            minDate = addMinutes(new Date(2014, 07, 15), 30);
+            minDate = addMinutes(new Date(), -30);
 
         while (i--) {
-            if (minDate > new Date(data.start) &&
+            if (minDate > new Date(data[i].start) &&
                 data.title != "OFFLINE") {
                 data.splice(i, 1);
             } 

@@ -31,7 +31,7 @@
             
                 <div class="list-group" data-bind="foreach: talks">
                     <a class="list-group-item" data-bind="click: $root.showDetails">
-                        <span class="badge" data-bind="text: moment(start()).format('hh:mm')"></span>
+                        <span class="badge" data-bind="text: moment(start()).format('HH:mm')"></span>
                         <!--ko text: title--><!--/ko-->
                     </a>
                 </div>   
@@ -47,7 +47,7 @@
                     
                     <i class="glyphicon glyphicon-circle-arrow-left" data-bind="click: $root.showHome"></i>
                     <h2>
-                        <span class="label label-info pull-right small" data-bind="text: moment(start()).format('DD.MM.YYYY - hh:mm [Uhr]')"></span>
+                        <span class="label label-info pull-right small" data-bind="text: moment(start()).format('DD.MM.YYYY - HH:mm [Uhr]')"></span>
                         <!--ko text: title--><!--/ko-->
                     </h2>                  
                     
