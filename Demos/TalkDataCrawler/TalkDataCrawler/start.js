@@ -17,9 +17,14 @@ var fs = require('fs'),
     fileNameJson = '../talks_fallback.json',
     fileNameJsonP = '../talks_callback.json';
 
-var writeFile = function(fileName, content) {
-    //var utf8Bom = '\ufeff';
-    var utf8Bom = '';
+var saveStringify = function(obj) {
+    return JSON.stringify(obj)
+        .replace(/\u2028/g, '\\u2028')
+        .replace(/\u2029/g, '\\u??2029');
+}
+
+var writeFile = function (fileName, content) {
+    var utf8Bom = '\ufeff';
     fs.writeFile(fileName, utf8Bom + content, 'utf8', console.log);
 };
 
@@ -28,8 +33,8 @@ dwxCrawler.on('complete', function (talks, offlineElement) {
 
     console.log("Writing talks to disk!");
 
-    writeFile(fileNameJson, JSON.stringify([offlineElement].concat(talks)));
-    writeFile(fileNameJsonP, 'callback(' + JSON.stringify(talks) + ');');
+    writeFile(fileNameJson, saveStringify([offlineElement].concat(talks)));
+    writeFile(fileNameJsonP, 'callback(' + saveStringify(talks) + ');');
 });
 
 dwxCrawler.start();
