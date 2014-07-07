@@ -3,7 +3,7 @@
   "ProjectGuid": "93cd8ddb-cfd8-4854-9d3c-638c27a66b92",
   "IsRunnable": "true",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "AppIdentifier": "com.telerik.CordovaKendoUiMobileDemo",
+  "AppIdentifier": "com.telerik.DwxDemoApp",
   "BundleVersion": "1.0",
   "FrameworkVersion": "3.2.0",
   "CorePlugins": [
@@ -35,7 +35,7 @@
   "iOSBackgroundMode": [],
   "WP8TileTitle": "DWX Demo App",
   "WP8ProductID": "{93cd8ddb-cfd8-4854-9d3c-638c27a66b92}",
-  "WP8PublisherID": "{6a9d7515-a5f0-42ac-933b-f45f46ce8bca}",
+  "WP8PublisherID": "{02835b11-14ad-4dc8-8ba9-448d6f1849b1}",
   "WP8Publisher": "Johannes Hoppe",
   "WP8Capabilities": [
     "ID_CAP_NETWORKING"
