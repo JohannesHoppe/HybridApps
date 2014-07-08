@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "CordovaKendoUiMobile", "CordovaKendoUiMobile\CordovaKendoUiMobile.iceproj", "{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}"
+Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "DWXDemoApp", "CordovaKendoUiMobile\DWXDemoApp.iceproj", "{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
