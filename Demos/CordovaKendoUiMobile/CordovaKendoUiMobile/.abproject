@@ -4,7 +4,7 @@
   "IsRunnable": "true",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "AppIdentifier": "com.telerik.DwxDemoApp",
-  "BundleVersion": "1.0",
+  "BundleVersion": "1.1.0.0",
   "FrameworkVersion": "3.2.0",
   "CorePlugins": [
     "org.apache.cordova.device-orientation",
@@ -25,7 +25,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "Framework": "Cordova",
-  "DisplayName": "DWX Demo App",
+  "DisplayName": "Demo App zur DWX",
   "Author": "Johannes Hoppe",
   "Description": "Inoffizielle Demo-App zur DWX 2014.",
   "iOSDeviceFamily": [
@@ -33,7 +33,7 @@
     "2"
   ],
   "iOSBackgroundMode": [],
-  "WP8TileTitle": "DWX Demo App",
+  "WP8TileTitle": "Demo App zur DWX",
   "WP8ProductID": "{93cd8ddb-cfd8-4854-9d3c-638c27a66b92}",
   "WP8PublisherID": "{02835b11-14ad-4dc8-8ba9-448d6f1849b1}",
   "WP8Publisher": "Johannes Hoppe",
@@ -41,5 +41,5 @@
     "ID_CAP_NETWORKING"
   ],
   "WP8Requirements": [],
-  "AndroidVersionCode": "1"
+  "AndroidVersionCode": "2"
 }
