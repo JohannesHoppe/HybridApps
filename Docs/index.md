@@ -8,6 +8,15 @@
 3. [jQuery Mobile based App](#jQM)  
 4. [Kendo UI Mobile based App](#kendoUI)  
 
+This text is an addition to the German talk "Apache Cordova and Frameworks for hybrid Apps" from Johannes Hoppe. He will introduce Apache Cordova (in this case: Telerik AppBuilder, which bases on Cordova). The main talk concentrates on three different frontend-frameworks. All of them have strength an weaknesses. This talks does not aim to provide a comprehensive comparison, instead Johannes will show how it feels to code with them. In the end, we will have a working prototype which shows the current DWX session.
+
+You can download this prototype directly from the main app stores
+* Android: https://play.google.com/store/apps/details?id=com.telerik.DwxDemoApp
+* Windows Phone: http://www.windowsphone.com/en-us/store/app/demo-app-zur-dwx/cd5c1536-5690-4dea-a068-f1e5cb951703
+* iOS: still pending review!
+
+(or just search for "DWX" in your store)
+
 
 <a name="knockout"></a>
 ## 1. Mobile apps
@@ -24,36 +33,40 @@
 
 **Hybrid apps** try to close the gap between both worlds. They are written with web technologies (HTML, CSS & JavaScript) and do not require specialized knowledge about the targeted platform and its tools. Hybrid apps are shipped with a native executable that provides a browser engine for the web stack as well as an abstraction layer that allows access of native libraries. This abstraction layer is presented as an JavaScript API. The browser engine (and the general performance JavaScript) as well as the amount of abstraction make hybrid apps slower in comparison to native apps. Having that in mind, hybrid platforms offer a suitable way to build apps with open standards that can be published to the app stores!
 
-The most common framework for hybrid apps is [Apache Cordova](http://en.wikipedia.org/wiki/Apache_Cordova). The framework was originally called [PhonGap](http://phonegap.com/) until Adobe made it open source. Now PhoneGap is the name of the most common open source distribution of Cordova with an own app directory. However, as an windows user it is difficulty to create an iOS app. PhoneGap requires you to own a Mac, since tools required for building iOS applications run only on the OS X operating system. To avoid all platform specific struggles, Johannes will show all examples in [Icenium Mist](http://www.icenium.com/). This cloud-based IDE from Telerik a new rising star in the hybrid app world.
+The most common framework for hybrid apps is [Apache Cordova](http://en.wikipedia.org/wiki/Apache_Cordova). The framework was originally called [PhonGap](http://phonegap.com/) until Adobe made it open source. Now PhoneGap is the name of the most common open source distribution of Cordova with an own app directory. However, as an windows user it can be tricky to create an iOS app. PhoneGap requires you to own a Mac, since tools required for building iOS applications run only on the OS X operating system. To avoid all platform specific struggles, Johannes will show all examples in [AppBuilder](http://www.icenium.com/). It's available as a cloud-based IDE as well as an Visual Studio Extension. AppBuilder hides the usual problems and lets us concentrate on pure App-development. Let's go!
 
 <a name="knockout"></a>
-## 2. Knockout based App with Bootstrap
+## 2. MVVM - Knockout based App with Bootstrap
 
-We have already revisited the [MVVM framework](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvvm) Knockout in the [first](https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/01.%20Knockout%20Webinar.md) and [second webinar](https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/02.%20Knockout%20Webinar.md). Lets continue with the already well-known "sticky notes" example. The demo **"CordovaBootstrapKnockoutDemo"** utilizes jQuery for data retrieval and iterates through the retrieved data with the help of [Knockout](http://knockoutjs.com/). A plain white HTML5 application has not attractive appearance. The front-end framework [Bootstrap](http://getbootstrap.com/) is a great way to change this. It ships with a set of CSS classes (like `container`, `glyphicon`, `alert`, `list-group` or `badge`)  that can be used to style our hybrid application. Themes, like the [Bootswatch Slate theme](http://bootswatch.com/slate/), create a native app appearance. Here is an example where both the Bootstrap CSS classes as well as the Knockout **HTML 5 data-attributes** (`data-bind` with `click`, `foreach` or `text`) are used to show a list of notes:
+The  [MVVM](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvvm) pattern got a lot of popularity in the last time. A big majority of client-side JavaScript frameworks support it (eg. Knockout.js, AngularJS, Kendo UI or Ext JS). You might want to learn more about it in the [first](https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/01.%20Knockout%20Webinar.md) and [second Developer Media webinar](https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/02.%20Knockout%20Webinar.md).
+
+The demo **"CordovaBootstrapKnockout"** utilizes jQuery for data retrieval and iterates through the retrieved data with the help of [Knockout](http://knockoutjs.com/). Knockout started the popularity of MVVM in the JavaScript world. Some people might consider it as a bit outdated, but it is easy to use and comes with just one file - so it's perfect for a short demo! 
+
+Of course, a plain white HTML5 application won't have an attractive appearance. The front-end framework [Bootstrap](http://getbootstrap.com/) is generally a solid way to get a modern look. It ships with a set of CSS classes (like `container`, `glyphicon`, `alert`, `list-group` or `badge`)  that can be used to style our hybrid application. Themes, like the [Bootswatch Slate theme](http://bootswatch.com/slate/), create a flat mobile-like app appearance. Here is an example where both the Bootstrap CSS classes as well as the Knockout **HTML 5 data-attributes** (`data-bind` with `click`, `foreach` and `text`) are used to show a list of talks:
 
 ```html
 <div id="index_template" class="container">
+         
     <i class="glyphicon glyphicon-home" data-bind="click: $root.loadData"></i>
-    <h2>Bootstrap-Ko</h2>
-    
-    <p class="alert alert-info">
-        The following list was rendered with <b>jQuery</b> &amp; <b>Knockout</b>
-        and styled via the Slate <b>Bootstrap</b> theme.
-    </p> 
-    
-    <div class="list-group" data-bind="foreach: notes">
+    <h2>DWX 2014</h2>
+
+    <div class="list-group" data-bind="foreach: talks">
         <a class="list-group-item" data-bind="click: $root.showDetails">
-            <span class="badge" data-bind="text: moment(Added()).format('DD.MM.YYYY')"></span>
-            <!--ko text: Title--><!--/ko-->
+            <span class="badge" data-bind="text: moment(start()).format('HH:mm')"></span>
+            <!--ko text: title--><!--/ko-->
         </a>
-    </div>
+    </div>   
+
+    <p class="alert alert-info">
+        Diese App verwendet <b>Knockout.js</b> und ist ein Beispiel für die Entwicklung von hybriden Anwendungen mit Apache Cordova.
+    </p> 
 </div>
 ``` 
 
 Which renders to this screen in Apache Cordova / Icenium: 
 ![Screenshot](images/cordova_bootstrap_knockout.png)
 
-Bootstrap comes with a lot of interesting CSS tricks. For example a special font ("[glyphicons](http://glyphicons.com/)") is used to create scalable icons. That font contains icons instead of letters. A good font looks sharp on all devices, so that higher pixel ratios of "retina displays" do not have any negative impact. This technique is called **[icon fonts](http://weloveiconfonts.com/)**, too.
+Bootstrap comes with a lot of CSS tricks. For example a special font ("[glyphicons](http://glyphicons.com/)") is used to create scalable icons. Those iconfont contain icons instead of letters. A good font looks sharp on all devices, so that higher pixel ratios of "retina displays" do not have any negative impact. As a best practice, try to avoid pixel images in a mobile application. You might want to check [Font Awesome](http://fontawesome.com) and **[weloveiconfonts.com](http://weloveiconfonts.com/)** for more icon fonts. too.
 
 <a name="jQM"></a>
 ## 3. jQuery Mobile based App
