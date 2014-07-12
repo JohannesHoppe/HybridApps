@@ -63,15 +63,17 @@ Of course, a plain white HTML5 application won't have an attractive appearance. 
 </div>
 ``` 
 
-Which renders to this screen in Apache Cordova / Icenium: 
+Which renders to this screen in Apache Cordova / AppBuilder: 
 ![Screenshot](images/cordova_bootstrap_knockout.png)
 
-Bootstrap comes with a lot of CSS tricks. For example a special font ("[glyphicons](http://glyphicons.com/)") is used to create scalable icons. Those iconfont contain icons instead of letters. A good font looks sharp on all devices, so that higher pixel ratios of "retina displays" do not have any negative impact. As a best practice, try to avoid pixel images in a mobile application. You might want to check [Font Awesome](http://fontawesome.com) and **[weloveiconfonts.com](http://weloveiconfonts.com/)** for more icon fonts. too.
+Bootstrap comes with a lot of CSS tricks. For example a special font ("[glyphicons](http://glyphicons.com/)") is used to create scalable icons. This font contains icons instead of letters. A good iconfont looks sharp on all devices, so that higher pixel ratios of "retina displays" do not have any negative impact. As a best practice, try to avoid pixel images in a mobile application. You might want to check [Font Awesome](http://fontawesome.com) and **[weloveiconfonts.com](http://weloveiconfonts.com/)** for more icons. too.
 
 <a name="jQM"></a>
-## 3. jQuery Mobile based App
+## 3. Dedicated Framework - jQuery Mobile based App
 
-As we have seen, Bootstrap has "mobile first" responsive grid and a appealing flat graphical style. But it is still designed to work on mobile engines as well as in normal browsers. The demo **"CordovajQueryMobileDemo"** utilizes jQuery for data retrieval and renders its content with jQuery Mobile. JQuery mobile (often abbreviated as **jQM**) goes on step further and concentrates on mobile scenarios only. As the name suggests, it is a framework on top of jQuery. While Bootstrap does its (black) magic with CSS tricks, jQuery mobile is overcoming HTML5 limitations with JavaScript. For example a button is transformed from this:
+As we have seen, Bootstrap has "mobile first" responsive grid and a appealing flat graphical style. But it is still designed to work on mobile engines as well as in normal browsers. Lets take a look on a dedicated mobile framework. 
+
+The demo **"CordovajQueryMobile"** utilizes jQuery for data retrieval and renders its content with jQuery Mobile. JQuery mobile (often abbreviated as **jQM**) goes on step further and concentrates on mobile scenarios only. As the name suggests, it is a framework on top of jQuery. While Bootstrap does its magic with CSS tricks, jQuery mobile is overcoming HTML5 limitations with JavaScript. For example a button is transformed from this:
 
 ```html
 <button type="submit">Go</button>
@@ -109,7 +111,7 @@ This is the rendered result in Apache Cordova / Icenium:
 
 We don't have to care about page transitions. By default, all local links get a click listener automatically. jQuery Mobile will automatically handle page requests in a single-page model, using Ajax when possible. As shown in the next example, if a link in a multi-page document points to an anchor (#page-details), the framework will look for a page wrapper with that id (id="page-details"). If it finds a page in the HTML document, it will bring the new page into view. 
 
-Loading of content is straightforward. We can use JQuery core as usual, so that this snipped is the only self-written JavaScript required to show the start screen:
+Loading of content is straightforward. We can use jQuery core as usual, so that this snipped is the only self-written JavaScript required to show the start screen:
 ```html
 <div id="page-home" data-role="page" >
 
@@ -134,11 +136,7 @@ Loading of content is straightforward. We can use JQuery core as usual, so that 
 
     $("#page-home").on('pagebeforeshow', function () {
         
-        $.ajax({
-            url: 'http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json',
-            dataType: 'jsonp',
-            jsonpCallback: 'callback'
-        }).done(function (result) {
+        getData().done(function (result) {
             $('#home-listview')
                 .empty()
                 .append(createListItems(result))
