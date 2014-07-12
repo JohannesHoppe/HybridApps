@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dokumentation: Apache Cordova und Frameworks für hybride Apps</title>
+<title>index</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* This file is deliberately empty */
@@ -17,13 +17,23 @@
 <h1 id="frameworks-for-hybrid-apps">Frameworks for Hybrid Apps</h1>
 <h5 id="table-of-contents">Table of Contents</h5>
 <ol>
-<li><a href="#mobile">Mobile apps</a>  </li>
-<li><a href="#knockout">Knockout based App with Bootstrap</a>  </li>
-<li><a href="#jQM">jQuery Mobile based App</a>  </li>
-<li><a href="#kendoUI">Kendo UI Mobile based App</a>  </li>
+<li><a href="#mobile">Mobile apps</a><br>1.1 <a href="#flavours">Flavours</a><br>1.2 <a href="#cordova">Cordova</a>    </li>
+<li><a href="#knockout">MVVM - sKnockout based App with Bootstrap</a>  </li>
+<li><a href="#jQM">Dedicated Framework - jQuery Mobile based App</a>  </li>
+<li><a href="#kendoUI">Combined - Kendo UI Mobile based App</a>  </li>
 </ol>
+<p>This text is an addition to the German talk &quot;Apache Cordova and Frameworks for hybrid Apps&quot; from Johannes Hoppe. He will introduce Apache Cordova (in this case: Telerik AppBuilder, which bases on Cordova). The main talk concentrates on three different frontend-frameworks. All of them have strength an weaknesses. This talks does not aim to provide a comprehensive comparison, instead Johannes will show how it feels to code with them. In the end, we will have a working prototype which shows the current DWX session.</p>
+<p>You can download this prototype directly from the main app stores</p>
+<ul>
+<li>Android: <a href="https://play.google.com/store/apps/details?id=com.telerik.DwxDemoApp">https://play.google.com/store/apps/details?id=com.telerik.DwxDemoApp</a></li>
+<li>Windows Phone: <a href="http://www.windowsphone.com/en-us/store/app/demo-app-zur-dwx/cd5c1536-5690-4dea-a068-f1e5cb951703">http://www.windowsphone.com/en-us/store/app/demo-app-zur-dwx/cd5c1536-5690-4dea-a068-f1e5cb951703</a></li>
+<li>iOS: still pending review! :-(</li>
+</ul>
+<p>(or just search for &quot;DWX&quot; in your store)</p>
 <p><a name="mobile"></a></p>
-<h2 id="1-mobile-apps">1. Mobile apps</h2>
+<h1 id="1-mobile-apps">1. Mobile apps</h1>
+<p><a name="flavours"></a></p>
+<h2 id="1-1-flavours">1.1 Flavours</h2>
 <p> Usually a mobile app belongs to one of these tree groups:</p>
 <ol>
 <li>Native apps</li>
@@ -33,31 +43,41 @@
 <p><strong>Native apps</strong> are built for a specific platform with the official platform SDK. Its important to know the specific development languages: Objective-C for iOS, Java for Android and C# for Windows Phone. The are published and sold via the official app store. Usually App stores are the most profitable distribution channel for publishers. On the one hand a closed app system guarantees revenue, but on the other hand it&#39;s hard to target different operation systems since specialized developers are required. Due to that fact, for most apps only the two big players (iOS and Android) are targeted.</p>
 <p><strong>Mobile optimized websites</strong> are just normal server-side apps, built with any server-side technology that renders HTML. The biggest challenges are the styling (it must feel &quot;native&quot; and must fit the the device form factor) and the fact, that a mobile device can be go offline or struggle with a limited connectivity. On the one hand its hard to monetize such an app, but on the other hand its easier to target various platform with the same team of developers, that can be specialized to any server-side programming language and framework.</p>
 <p><strong>Hybrid apps</strong> try to close the gap between both worlds. They are written with web technologies (HTML, CSS &amp; JavaScript) and do not require specialized knowledge about the targeted platform and its tools. Hybrid apps are shipped with a native executable that provides a browser engine for the web stack as well as an abstraction layer that allows access of native libraries. This abstraction layer is presented as an JavaScript API. The browser engine (and the general performance JavaScript) as well as the amount of abstraction make hybrid apps slower in comparison to native apps. Having that in mind, hybrid platforms offer a suitable way to build apps with open standards that can be published to the app stores!</p>
-<p>The most common framework for hybrid apps is <a href="http://en.wikipedia.org/wiki/Apache_Cordova">Apache Cordova</a>. The framework was originally called <a href="http://phonegap.com/">PhonGap</a> until Adobe made it open source. Now PhoneGap is the name of the most common open source distribution of Cordova with an own app directory. However, as an windows user it is difficulty to create an iOS app. PhoneGap requires you to own a Mac, since tools required for building iOS applications run only on the OS X operating system. To avoid all platform specific struggles, Johannes will show all examples in <a href="http://www.icenium.com/">Icenium Mist</a>. This cloud-based IDE from Telerik a new rising star in the hybrid app world.</p>
+<p><a name="cordova"></a></p>
+<h2 id="1-2-cordova">1.2 Cordova</h2>
+<p>The most common framework for hybrid apps is <a href="http://en.wikipedia.org/wiki/Apache_Cordova">Apache Cordova</a>. The framework was originally called <a href="http://phonegap.com/">PhonGap</a> until Adobe made it open source. Now PhoneGap is the name of the most common open source distribution of Cordova with an own app directory.</p>
+<p><img src="images/web-view.png" alt="Phonegap"></p>
+<p>Cordova lets you write an application using HTML, JavaScript &amp; CSS - and run it as a natively-installed application on supported mobile devices. It&#39;s effectively a container for a web application that allows your JavaScript to access certain native device APIs. The web view used by Cordova is that browser engine which the native operating system provide for native developers, too. On iOS, this is the Objective-C UIWebView class (which is <strong>not</strong> a Mobile Safari), on Android, this is android.webkit.WebView and for Windows Phone 8 this is a WebView control in a Silverlight project (mobile IE10). </p>
+<p>PhoneGap provides an application programming interface (API) that enables you to access native operating system functionality using JavaScript. You build your application logic using JavaScript, and the PhoneGap API handles communication with the native operating system.</p>
+<p><img src="images/phonegap_API.png" alt="Phonegap API"></p>
+<p>However, as an windows user it can be tricky to create an iOS app. E.g. Cordova usually requires you to own a Mac, since tools required for building iOS applications run only on the OS X operating system. To avoid all platform specific struggles, Johannes will show all examples in <a href="http://www.icenium.com/">AppBuilder</a>. It&#39;s available as a cloud-based IDE as well as an Visual Studio Extension. AppBuilder hides the usual problems and lets us concentrate on pure App-development. You should be warned that AppBuilder will build your deployment package in the cloud! If this is not acceptable for you or our companies rules, it&#39;s wiser to install the required SDKs and stick to the plain Cordova!</p>
 <p><a name="knockout"></a></p>
-<h2 id="2-knockout-based-app-with-bootstrap">2. Knockout based App with Bootstrap</h2>
-<p>We have already revisited the <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvvm">MVVM framework</a> Knockout in the <a href="https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/01.%20Knockout%20Webinar.md">first</a> and <a href="https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/02.%20Knockout%20Webinar.md">second webinar</a>. Lets continue with the already well-known &quot;sticky notes&quot; example. The demo <strong>&quot;CordovaBootstrapKnockoutDemo&quot;</strong> utilizes jQuery for data retrieval and iterates through the retrieved data with the help of <a href="http://knockoutjs.com/">Knockout</a>. A plain white HTML5 application has not attractive appearance. The front-end framework <a href="http://getbootstrap.com/">Bootstrap</a> is a great way to change this. It ships with a set of CSS classes (like <code>container</code>, <code>glyphicon</code>, <code>alert</code>, <code>list-group</code> or <code>badge</code>)  that can be used to style our hybrid application. Themes, like the <a href="http://bootswatch.com/slate/">Bootswatch Slate theme</a>, create a native app appearance. Here is an example where both the Bootstrap CSS classes as well as the Knockout <strong>HTML 5 data-attributes</strong> (<code>data-bind</code> with <code>click</code>, <code>foreach</code> or <code>text</code>) are used to show a list of notes:</p>
+<h2 id="2-mvvm-knockout-based-app-with-bootstrap">2. MVVM - Knockout based App with Bootstrap</h2>
+<p>The  <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvvm">MVVM</a> pattern got a lot of popularity in the last time. A big majority of client-side JavaScript frameworks support it (eg. Knockout.js, AngularJS, Kendo UI or Ext JS). You might want to learn more about it in the <a href="https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/01.%20Knockout%20Webinar.md">first</a> and <a href="https://github.com/JohannesHoppe/DeveloperMediaDemo/blob/master/Documentation/02.%20Knockout%20Webinar.md">second Developer Media webinar</a>.</p>
+<p>The demo <strong>&quot;CordovaBootstrapKnockout&quot;</strong> utilizes jQuery for data retrieval and iterates through the retrieved data with the help of <a href="http://knockoutjs.com/">Knockout</a>. Knockout started the popularity of MVVM in the JavaScript world. Some people might consider it as a bit outdated, but it is easy to use and comes with just one file - so it&#39;s perfect for a short demo! </p>
+<p>Of course, a plain white HTML5 application won&#39;t have an attractive appearance. The front-end framework <a href="http://getbootstrap.com/">Bootstrap</a> is generally a solid way to get a modern look. It ships with a set of CSS classes (like <code>container</code>, <code>glyphicon</code>, <code>alert</code>, <code>list-group</code> or <code>badge</code>)  that can be used to style our hybrid application. Themes, like the <a href="http://bootswatch.com/slate/">Bootswatch Slate theme</a>, create a flat mobile-like app appearance. Here is an example where both the Bootstrap CSS classes as well as the Knockout <strong>HTML 5 data-attributes</strong> (<code>data-bind</code> with <code>click</code>, <code>foreach</code> and <code>text</code>) are used to show a list of talks:</p>
 <pre><code class="lang-html">&lt;div id=&quot;index_template&quot; class=&quot;container&quot;&gt;
+
     &lt;i class=&quot;glyphicon glyphicon-home&quot; data-bind=&quot;click: $root.loadData&quot;&gt;&lt;/i&gt;
-    &lt;h2&gt;Bootstrap-Ko&lt;/h2&gt;
+    &lt;h2&gt;DWX 2014&lt;/h2&gt;
+
+    &lt;div class=&quot;list-group&quot; data-bind=&quot;foreach: talks&quot;&gt;
+        &lt;a class=&quot;list-group-item&quot; data-bind=&quot;click: $root.showDetails&quot;&gt;
+            &lt;span class=&quot;badge&quot; data-bind=&quot;text: moment(start()).format(&#39;HH:mm&#39;)&quot;&gt;&lt;/span&gt;
+            &lt;!--ko text: title--&gt;&lt;!--/ko--&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;   
 
     &lt;p class=&quot;alert alert-info&quot;&gt;
-        The following list was rendered with &lt;b&gt;jQuery&lt;/b&gt; &amp;amp; &lt;b&gt;Knockout&lt;/b&gt;
-        and styled via the Slate &lt;b&gt;Bootstrap&lt;/b&gt; theme.
+        Diese App verwendet &lt;b&gt;Knockout.js&lt;/b&gt; und ist ein Beispiel für die Entwicklung von hybriden Anwendungen mit Apache Cordova.
     &lt;/p&gt; 
-
-    &lt;div class=&quot;list-group&quot; data-bind=&quot;foreach: notes&quot;&gt;
-        &lt;a class=&quot;list-group-item&quot; data-bind=&quot;click: $root.showDetails&quot;&gt;
-            &lt;span class=&quot;badge&quot; data-bind=&quot;text: moment(Added()).format(&#39;DD.MM.YYYY&#39;)&quot;&gt;&lt;/span&gt;
-            &lt;!--ko text: Title--&gt;&lt;!--/ko--&gt;
-        &lt;/a&gt;
-    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<p>Which renders to this screen in Apache Cordova / Icenium:<br><img src="images/cordova_bootstrap_knockout.png" alt="Screenshot"></p>
-<p>Bootstrap comes with a lot of interesting CSS tricks. For example a special font (&quot;<a href="http://glyphicons.com/">glyphicons</a>&quot;) is used to create scalable icons. That font contains icons instead of letters. A good font looks sharp on all devices, so that higher pixel ratios of &quot;retina displays&quot; do not have any negative impact. This technique is called <strong><a href="http://weloveiconfonts.com/">icon fonts</a></strong>, too.</p>
+<p>Which renders to this screen in Apache Cordova / AppBuilder:<br><img src="images/cordova_bootstrap_knockout.png" alt="Screenshot"></p>
+<p>Bootstrap comes with a lot of CSS tricks. For example a special font (&quot;<a href="http://glyphicons.com/">glyphicons</a>&quot;) is used to create scalable icons. This font contains icons instead of letters. A good iconfont looks sharp on all devices, so that higher pixel ratios of &quot;retina displays&quot; do not have any negative impact. As a best practice, try to avoid pixel images in a mobile application. You might want to check <a href="http://fontawesome.com">Font Awesome</a> and <strong><a href="http://weloveiconfonts.com/">weloveiconfonts.com</a></strong> for more icons. too.</p>
 <p><a name="jQM"></a></p>
-<h2 id="3-jquery-mobile-based-app">3. jQuery Mobile based App</h2>
-<p>As we have seen, Bootstrap has &quot;mobile first&quot; responsive grid and a appealing flat graphical style. But it is still designed to work on mobile engines as well as in normal browsers. The demo <strong>&quot;CordovajQueryMobileDemo&quot;</strong> utilizes jQuery for data retrieval and renders its content with jQuery Mobile. JQuery mobile (often abbreviated as <strong>jQM</strong>) goes on step further and concentrates on mobile scenarios only. As the name suggests, it is a framework on top of jQuery. While Bootstrap does its (black) magic with CSS tricks, jQuery mobile is overcoming HTML5 limitations with JavaScript. For example a button is transformed from this:</p>
+<h2 id="3-dedicated-framework-jquery-mobile-based-app">3. Dedicated Framework - jQuery Mobile based App</h2>
+<p>As we have seen, Bootstrap has &quot;mobile first&quot; responsive grid and a appealing flat graphical style. But it is still designed to work on mobile engines as well as in normal browsers. Lets take a look on a dedicated mobile framework. </p>
+<p>The demo <strong>&quot;CordovajQueryMobile&quot;</strong> utilizes jQuery for data retrieval and renders its content with jQuery Mobile. JQuery mobile (often abbreviated as <strong>jQM</strong>) goes on step further and concentrates on mobile scenarios only. As the name suggests, it is a framework on top of jQuery. While Bootstrap does its magic with CSS tricks, jQuery mobile is overcoming HTML5 limitations with JavaScript. For example a button is transformed from this:</p>
 <pre><code class="lang-html">&lt;button type=&quot;submit&quot;&gt;Go&lt;/button&gt;</code></pre>
 <p>to this:</p>
 <pre><code class="lang-html">&lt;div class=&quot;ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c&quot;&gt;
@@ -82,7 +102,7 @@
 &lt;/div&gt;</code></pre>
 <p>This is the rendered result in Apache Cordova / Icenium:<br><img src="images/cordova_jQueryMobile.png" alt="Screenshot"></p>
 <p>We don&#39;t have to care about page transitions. By default, all local links get a click listener automatically. jQuery Mobile will automatically handle page requests in a single-page model, using Ajax when possible. As shown in the next example, if a link in a multi-page document points to an anchor (#page-details), the framework will look for a page wrapper with that id (id=&quot;page-details&quot;). If it finds a page in the HTML document, it will bring the new page into view. </p>
-<p>Loading of content is straightforward. We can use JQuery core as usual, so that this snipped is the only self-written JavaScript required to show the start screen:</p>
+<p>Loading of content is straightforward. We can use jQuery core as usual, so that this snipped is the only self-written JavaScript required to show the start screen:</p>
 <pre><code class="lang-html">&lt;div id=&quot;page-home&quot; data-role=&quot;page&quot; &gt;
 
     &lt;div data-role=&quot;header&quot; data-position=&quot;fixed&quot;&gt;
@@ -103,11 +123,7 @@
 
     $(&quot;#page-home&quot;).on(&#39;pagebeforeshow&#39;, function () {
 
-        $.ajax({
-            url: &#39;http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json&#39;,
-            dataType: &#39;jsonp&#39;,
-            jsonpCallback: &#39;callback&#39;
-        }).done(function (result) {
+        getData().done(function (result) {
             $(&#39;#home-listview&#39;)
                 .empty()
                 .append(createListItems(result))
@@ -124,7 +140,7 @@
                 $(&#39;&lt;a /&gt;&#39;)
                     .attr(&#39;href&#39;, &#39;#page-details&#39;)
                     .data(&#39;transition&#39;, &#39;slide&#39;)
-                    .text(item.Title));
+                    .text(item.title));
 
             items.push(listItemWithLink);
         });
@@ -132,12 +148,12 @@
     };
 
 })(window.jQuery);</code></pre>
-<p>As you see, we are inserting some <code>&lt;li&gt;&lt;a href=&quot;&quot; /&gt;&lt;/li&gt;</code> elements directly into the document. It is important to know, that the <a href="http://api.jquerymobile.com/listview/">Listview Widget</a> requires a call at the <strong>refresh</strong> method to update the visual styling.</p>
+<p>As you see, we are inserting some <code>&lt;li&gt;&lt;a href=&quot;&quot; /&gt;&lt;/li&gt;</code> elements directly into the document. It is important to know, that the <a href="http://api.jquerymobile.com/listview/">Listview Widget</a> requires a call of the <strong>refresh</strong> method to update the visual styling.</p>
 <p>Here is the final result:</p>
 <p><img src="images/cordova_jQueryMobile2.png" alt="Screenshot"></p>
 <p><a name="kendoUI"></a></p>
-<h2 id="4-kendo-ui-mobile-based-app">4. Kendo UI Mobile based App</h2>
-<p>In my opinion there is a golden mean between a pure CSS-based framework (like Bootstrap) combined with a MVVM framework (like Knockout) and jQuery mobile. This framework is called Kendo UI mobile. Kendo UI Mobile was definitely inspired by both Knockout AND jQuery mobile. It uses well-known HTML5 data attributes, like <code>data-bind=&quot;text: Text&quot;</code> for MVVM <strong>data-binding</strong> as in Knockout and <code>data-role=&quot;listview&quot;</code> for the creation of a <strong>widget</strong> as in jQM. Please take a look at the <strong>&quot;CordovaKendoUiMobileDemo&quot;</strong> sample app. </p>
+<h2 id="4-combined-kendo-ui-mobile-based-app">4. Combined - Kendo UI Mobile based App</h2>
+<p>In my opinion there is a golden mean between a pure CSS-based framework (like Bootstrap) combined with a MVVM framework (like Knockout or AngularJS) AND jQuery mobile (which manipulates the DOM heavily). This framework is called Kendo UI mobile. Kendo UI Mobile was definitely inspired by both Knockout AND jQuery mobile. It uses well-known HTML5 data attributes, like <code>data-bind=&quot;text: Text&quot;</code> for MVVM <strong>data-binding</strong> as in Knockout and <code>data-role=&quot;listview&quot;</code> for the creation of a <strong>widget</strong> as in jQM. Please take a look at the <strong>&quot;CordovaKendoUiMobileDemo&quot;</strong> sample app. </p>
 <p>But in contrast to jQM, with Kendo when you create a button:</p>
 <pre><code class="lang-html">&lt;a data-role=&quot;button&quot;&gt;Go&lt;/a&gt;</code></pre>
 <p>the enhanced HTML will be only changed to this:</p>
@@ -166,16 +182,16 @@
         &lt;/p&gt;         
 
         &lt;ul data-role=&quot;listview&quot;
-            data-template=&quot;notesTemplate&quot;
+            data-template=&quot;talksTemplate&quot;
             data-style=&quot;inset&quot;
-            data-bind=&quot;source: notes, events: { click: showDetails }&quot;&gt;
+            data-bind=&quot;source: talks, events: { click: showDetails }&quot;&gt;
         &lt;/ul&gt;   
 
     &lt;/div&gt;
 &lt;/div&gt;   
 
-&lt;script id=&quot;notesTemplate&quot; type=&quot;text/x-kendo-template&quot;&gt;
-    &lt;a&gt;#=Title#&lt;/a&gt;
+&lt;script id=&quot;talksTemplate&quot; type=&quot;text/x-kendo-template&quot;&gt;
+    &lt;a&gt;#=title#&lt;/a&gt;
 &lt;/script&gt;</code></pre>
 <pre><code class="lang-js">
 (function (global) {
@@ -199,12 +215,8 @@ var IndexPageViewModel = function () {
 
         loadData: function() {
 
-            $.ajax({
-                url: &#39;http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json&#39;,
-                dataType: &#39;jsonp&#39;,
-                jsonpCallback: &#39;callback&#39;
-            }).done(function(result) {
-                viewModel.set(&quot;notes&quot;, result);
+            getData().done(function(result) {
+                viewModel.set(&quot;talks&quot;, result);
             });
         },
 
@@ -216,11 +228,13 @@ var IndexPageViewModel = function () {
 
     return viewModel;
 }</code></pre>
+<p>Here is the final result:</p>
 <p><img src="images/cordova_KendoUiMobile.png" alt="Screenshot"></p>
+<p>You can download the Kendo UI example your app store. (search for &quot;DWX&quot;) Feel free to download the full examples at Github:<br><a href="https://github.com/JohannesHoppe/HybridApps">https://github.com/JohannesHoppe/HybridApps</a></p>
 <hr>
 
 <p><em>&copy; 2014, Johannes Hoppe</em></p>
 
 </body>
 </html>
-
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
