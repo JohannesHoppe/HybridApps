@@ -6,9 +6,10 @@
 1. [Mobile apps](#mobile)
 1.1 [Flavours](#flavours) 
 1.2 [Cordova](#cordova)    
-2. [MVVM - sKnockout based App with Bootstrap](#knockout)  
+2. [MVVM - Knockout based App with Bootstrap](#knockout)  
 3. [Dedicated Framework - jQuery Mobile based App](#jQM)  
 4. [Combined - Kendo UI Mobile based App](#kendoUI)  
+5. [Downloads & Links](#links)
 
 This text is an addition to the German talk "Apache Cordova and Frameworks for hybrid Apps" from Johannes Hoppe. He will introduce Apache Cordova (in this case: Telerik AppBuilder, which bases on Cordova). The main talk concentrates on three different frontend-frameworks. All of them have strength an weaknesses. This talks does not aim to provide a comprehensive comparison, instead Johannes will show how it feels to code with them. In the end, we will have a working prototype which shows the current DWX session.
 
@@ -289,8 +290,18 @@ Here is the final result:
 
 ![Screenshot](images/cordova_KendoUiMobile.png)
 
-You can download the Kendo UI example your app store. (search for "DWX") Feel free to download the full examples at Github: 
+
+<a name="links"></a>
+## 5. Downloads & Links
+
+You can read this document at: http://bit.ly/HybridAppsDocs <!-- http://johanneshoppe.github.io/HybridApps/Docs/ -->  
+The slides are available at: http://bit.ly/HybridAppsSlides <!-- http://johanneshoppe.github.io/HybridApps/Slides/ -->  
+
+Feel free to download the full examples at Github: 
 https://github.com/JohannesHoppe/HybridApps
+
+You can download the Kendo UI example from your app store. (search for "DWX")   
+
 
 
 <hr>
