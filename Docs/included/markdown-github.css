@@ -289,6 +289,13 @@ body {
     margin-right: auto;
 }
 
+img[alt=Logo] {
+    margin: auto;
+    display: block;
+}
+h1#frameworks-for-hybrid-apps {
+    text-align: center;
+}
 a {
   text-decoration: underline;
 }
