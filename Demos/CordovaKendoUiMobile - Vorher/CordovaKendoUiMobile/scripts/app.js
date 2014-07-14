@@ -3,10 +3,7 @@
 
     document.addEventListener("deviceready", function() {
 
-        app.indexPageViewModel = new IndexPageViewModel();
-        app.indexPageViewModel.loadData();
-
-        app.detailsPageViewModel = new DetailsPageViewModel();
+        app.indexPageViewModel = {}
         
         // kendo.mobile.Application internally calls kendo.bind
         app.application = new kendo.mobile.Application($(document.body), { layout: "tabstrip-layout" });
