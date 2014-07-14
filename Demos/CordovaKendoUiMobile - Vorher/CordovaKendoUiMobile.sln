@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "DWXDemoApp", "CordovaKendoUiMobile\DWXDemoApp.iceproj", "{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CD8DDB-CFD8-4854-9D3C-638C27A66B92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
