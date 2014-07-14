@@ -397,3 +397,8 @@ blockquote p {
     }
 }
 /* END: Fork me on GitHub */
+
+
+@media print {
+  img { max-height: 400px; }
+}
