@@ -24,8 +24,7 @@ var saveStringify = function(obj) {
 }
 
 var writeFile = function (fileName, content) {
-    var utf8Bom = '\ufeff';
-    fs.writeFile(fileName, utf8Bom + content, 'utf8', console.log);
+    fs.writeFile(fileName, content, 'utf8', console.log);
 };
 
 dwxCrawler = new DwxCrawler(crawlerConfig);
