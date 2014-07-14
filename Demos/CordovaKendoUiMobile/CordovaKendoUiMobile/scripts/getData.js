@@ -26,7 +26,7 @@ var getData = function () {
             url: url,
             dataType: 'jsonp',
             jsonpCallback: 'callback',
-            timeout: 2000,
+            timeout: 5000
         })
         .done(function (data, textStatus, jqXHR) {
             filterData(data);

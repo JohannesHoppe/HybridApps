@@ -3,23 +3,29 @@
 # Frameworks for Hybrid Apps
 
 ##### Table of Contents  
-1. [Mobile apps](#mobile)  
-2. [Knockout based App with Bootstrap](#knockout)  
-3. [jQuery Mobile based App](#jQM)  
-4. [Kendo UI Mobile based App](#kendoUI)  
+1. [Mobile apps](#mobile)
+1.1 [Flavours](#flavours) 
+1.2 [Cordova](#cordova)    
+2. [MVVM - Knockout based App with Bootstrap](#knockout)  
+3. [Dedicated Framework - jQuery Mobile based App](#jQM)  
+4. [Combined - Kendo UI Mobile based App](#kendoUI)  
+5. [Downloads & Links](#links)
 
 This text is an addition to the German talk "Apache Cordova and Frameworks for hybrid Apps" from Johannes Hoppe. He will introduce Apache Cordova (in this case: Telerik AppBuilder, which bases on Cordova). The main talk concentrates on three different frontend-frameworks. All of them have strength an weaknesses. This talks does not aim to provide a comprehensive comparison, instead Johannes will show how it feels to code with them. In the end, we will have a working prototype which shows the current DWX session.
 
 You can download this prototype directly from the main app stores
 * Android: https://play.google.com/store/apps/details?id=com.telerik.DwxDemoApp
 * Windows Phone: http://www.windowsphone.com/en-us/store/app/demo-app-zur-dwx/cd5c1536-5690-4dea-a068-f1e5cb951703
-* iOS: still pending review!
+* iOS: still pending review! :-(
 
 (or just search for "DWX" in your store)
 
 
-<a name="knockout"></a>
-## 1. Mobile apps
+<a name="mobile"></a>
+# 1. Mobile apps
+
+<a name="flavours"></a>
+## 1.1 Flavours
 
  Usually a mobile app belongs to one of these tree groups:
 
@@ -33,7 +39,23 @@ You can download this prototype directly from the main app stores
 
 **Hybrid apps** try to close the gap between both worlds. They are written with web technologies (HTML, CSS & JavaScript) and do not require specialized knowledge about the targeted platform and its tools. Hybrid apps are shipped with a native executable that provides a browser engine for the web stack as well as an abstraction layer that allows access of native libraries. This abstraction layer is presented as an JavaScript API. The browser engine (and the general performance JavaScript) as well as the amount of abstraction make hybrid apps slower in comparison to native apps. Having that in mind, hybrid platforms offer a suitable way to build apps with open standards that can be published to the app stores!
 
-The most common framework for hybrid apps is [Apache Cordova](http://en.wikipedia.org/wiki/Apache_Cordova). The framework was originally called [PhonGap](http://phonegap.com/) until Adobe made it open source. Now PhoneGap is the name of the most common open source distribution of Cordova with an own app directory. However, as an windows user it can be tricky to create an iOS app. PhoneGap requires you to own a Mac, since tools required for building iOS applications run only on the OS X operating system. To avoid all platform specific struggles, Johannes will show all examples in [AppBuilder](http://www.icenium.com/). It's available as a cloud-based IDE as well as an Visual Studio Extension. AppBuilder hides the usual problems and lets us concentrate on pure App-development. Let's go!
+<a name="cordova"></a>
+## 1.2 Cordova
+
+The most common framework for hybrid apps is [Apache Cordova](http://en.wikipedia.org/wiki/Apache_Cordova). The framework was originally called [PhonGap](http://phonegap.com/) until Adobe made it open source. Now PhoneGap is the name of the most common open source distribution of Cordova with an own app directory.
+
+![Phonegap](images/web-view.png)
+
+Cordova lets you write an application using HTML, JavaScript & CSS - and run it as a natively-installed application on supported mobile devices. It's effectively a container for a web application that allows your JavaScript to access certain native device APIs. The web view used by Cordova is that browser engine which the native operating system provide for native developers, too. On iOS, this is the Objective-C UIWebView class (which is **not** a Mobile Safari), on Android, this is android.webkit.WebView and for Windows Phone 8 this is a WebView control in a Silverlight project (mobile IE10). 
+
+PhoneGap provides an application programming interface (API) that enables you to access native operating system functionality using JavaScript. You build your application logic using JavaScript, and the PhoneGap API handles communication with the native operating system.
+
+![Phonegap API](images/phonegap_API.png)
+
+
+However, as an windows user it can be tricky to create an iOS app. E.g. Cordova usually requires you to own a Mac, since tools required for building iOS applications run only on the OS X operating system. To avoid all platform specific struggles, Johannes will show all examples in [AppBuilder](http://www.icenium.com/). It's available as a cloud-based IDE as well as an Visual Studio Extension. AppBuilder hides the usual problems and lets us concentrate on pure App-development. You should be warned that AppBuilder will build your deployment package in the cloud! If this is not acceptable for you or our companies rules, it's wiser to install the required SDKs and stick to the plain Cordova!
+
+
 
 <a name="knockout"></a>
 ## 2. MVVM - Knockout based App with Bootstrap
@@ -153,7 +175,7 @@ Loading of content is straightforward. We can use jQuery core as usual, so that 
                 $('<a />')
                     .attr('href', '#page-details')
                     .data('transition', 'slide')
-                    .text(item.Title));
+                    .text(item.title));
 
             items.push(listItemWithLink);
         });
@@ -163,16 +185,16 @@ Loading of content is straightforward. We can use jQuery core as usual, so that 
 })(window.jQuery);
 ```
 
-As you see, we are inserting some `<li><a href="" /></li>` elements directly into the document. It is important to know, that the [Listview Widget](http://api.jquerymobile.com/listview/) requires a call at the **refresh** method to update the visual styling.
+As you see, we are inserting some `<li><a href="" /></li>` elements directly into the document. It is important to know, that the [Listview Widget](http://api.jquerymobile.com/listview/) requires a call of the **refresh** method to update the visual styling.
 
 Here is the final result:
 
 ![Screenshot](images/cordova_jQueryMobile2.png)
 
 <a name="kendoUI"></a>
-## 4. Kendo UI Mobile based App
+## 4. Combined - Kendo UI Mobile based App
 
-In my opinion there is a golden mean between a pure CSS-based framework (like Bootstrap) combined with a MVVM framework (like Knockout) and jQuery mobile. This framework is called Kendo UI mobile. Kendo UI Mobile was definitely inspired by both Knockout AND jQuery mobile. It uses well-known HTML5 data attributes, like `data-bind="text: Text"` for MVVM **data-binding** as in Knockout and `data-role="listview"` for the creation of a **widget** as in jQM. Please take a look at the **"CordovaKendoUiMobileDemo"** sample app. 
+In my opinion there is a golden mean between a pure CSS-based framework (like Bootstrap) combined with a MVVM framework (like Knockout or AngularJS) AND jQuery mobile (which manipulates the DOM heavily). This framework is called Kendo UI mobile. Kendo UI Mobile was definitely inspired by both Knockout AND jQuery mobile. It uses well-known HTML5 data attributes, like `data-bind="text: Text"` for MVVM **data-binding** as in Knockout and `data-role="listview"` for the creation of a **widget** as in jQM. Please take a look at the **"CordovaKendoUiMobileDemo"** sample app. 
     
 But in contrast to jQM, with Kendo when you create a button:
 
@@ -212,16 +234,16 @@ Please notice that we can declare the required ViewModel directly in the source 
         </p>         
                     
         <ul data-role="listview"
-            data-template="notesTemplate"
+            data-template="talksTemplate"
             data-style="inset"
-            data-bind="source: notes, events: { click: showDetails }">
+            data-bind="source: talks, events: { click: showDetails }">
         </ul>   
 
     </div>
 </div>   
 
-<script id="notesTemplate" type="text/x-kendo-template">
-    <a>#=Title#</a>
+<script id="talksTemplate" type="text/x-kendo-template">
+    <a>#=title#</a>
 </script>
 ```
 
@@ -248,12 +270,8 @@ var IndexPageViewModel = function () {
 
         loadData: function() {
 
-            $.ajax({
-                url: 'http://johanneshoppe.github.io/DeveloperMediaSlides/examples/webinarp.json',
-                dataType: 'jsonp',
-                jsonpCallback: 'callback'
-            }).done(function(result) {
-                viewModel.set("notes", result);
+            getData().done(function(result) {
+                viewModel.set("talks", result);
             });
         },
 
@@ -267,7 +285,23 @@ var IndexPageViewModel = function () {
 }
 ```
 
+
+Here is the final result:
+
 ![Screenshot](images/cordova_KendoUiMobile.png)
+
+
+<a name="links"></a>
+## 5. Downloads & Links
+
+You can read this document at: http://bit.ly/HybridAppsDocs <!-- http://johanneshoppe.github.io/HybridApps/Docs/ -->  
+The slides are available at: http://bit.ly/HybridAppsSlides <!-- http://johanneshoppe.github.io/HybridApps/Slides/ -->  
+
+Feel free to download the full examples at Github: 
+https://github.com/JohannesHoppe/HybridApps
+
+You can download the Kendo UI example from your app store. (search for "DWX")   
+
 
 
 <hr>
