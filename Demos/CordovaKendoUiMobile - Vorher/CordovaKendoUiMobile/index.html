@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
+
+    <script src="cordova.js"></script>
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="scripts/DetailsPageViewModel.js"></script>
+    <script src="scripts/moment.min.js"></script>
+    <script src="scripts/getData.js" type="text/javascript"></script>
+    <!--<script src="scripts/IndexPageViewModel.js"></script>-->
+    <script src="scripts/app.js"></script>
+
+    <title>DWX Demo: Kendo UI Mobile mit Cordova</title>
+
+</head>
+    <body>
+        <div id="indexPage">
+
+            <div data-role="content" class="view-content">
+                
+
+                <h1>DWX 2014</h1>
+                            
+                <ul>
+                    <li>Hier Talks</li> 
+                    <li>Hier Talks</li> 
+                </ul>   
+
+                <p>
+                    Diese App verwendet <b>Kendo UI Mobile</b> und ist ein Beispiel f&uuml;r die Entwicklung von hybriden Anwendungen mit Apache Cordova.
+                </p>
+            </div>
+        </div>  
+        
+        
+         
+        
+    
+                                 
+
+
+        <!-- General Layout -->
+        <div data-role="layout" data-id="tabstrip-layout" >
+
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    <a class="nav-button" data-align="left" data-role="backbutton">Back</a>
+                </div>
+            </div>
+
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="#indexPage" data-icon="home">Home</a>
+                    <a href="#detailsPage" data-icon="bookmarks">Details</a>
+                </div>
+            </div>
+        </div>
+         
+        <!--
+        <div id="detailsPage" data-role="view" data-title="Details" data-model="app.detailsPageViewModel">
+
+            <div data-role="content" class="view-content" data-style="inset" >
+                
+                <span data-bind="text: start" class="label"></span>
+                <i class="km-icon km-bookmarks"></i>
+                <h1 data-bind="text: title"></h1>
+                  
+                <p>
+                    <b>Sprecher:</b> <span data-bind="text: speaker"></span><br/>   
+                    <b>Track:</b> <span data-bind="text: track"></span><br/>
+                </p>        
+
+                <p data-bind="text: description"></p>
+            </div>
+        </div>           
+        -->
+
+    </body>
+</html>
